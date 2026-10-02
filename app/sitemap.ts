@@ -4,8 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: 'https://hueter-imker.de',
-      lastChange:
-          new Date(),
+      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
