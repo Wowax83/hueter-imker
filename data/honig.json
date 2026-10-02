@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "blueten-honig",
+    "name": "Blütenhonig",
+    "description": "Mild und aromatisch – der Allrounder. Ideal zum Frühstück, für Müsli oder einfach aufs Brot.",
+    "farbe": "gold-hell",
+    "preis": "8,50 €",
+    "gewicht": "500 g"
+  },
+  {
+    "slug": "wald-honig",
+    "name": "Waldhonig",
+    "description": "Kräftig, malzig und dunkel. Beliebt bei Teeliebhabern und als Brotaufstrich.",
+    "farbe": "dunkel",
+    "preis": "9,50 €",
+    "gewicht": "500 g"
+  },
+  {
+    "slug": "rapshonig",
+    "name": "Rapshonig",
+    "description": "Feincremig und hell. Besonders mild, kristallisiert schnell – ein Klassiker.",
+    "farbe": "cremeweiss",
+    "preis": "8,00 €",
+    "gewicht": "500 g"
+  },
+  {
+    "slug": "akazienhonig",
+    "name": "Akazienhonig",
+    "description": "Sehr mild, flüssig und lange haltbar. Perfekt zum Süßen ohne Eigengeschmack.",
+    "farbe": "klar-hell",
+    "preis": "10,00 €",
+    "gewicht": "500 g"
+  }
+]
