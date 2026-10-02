@@ -1,16 +1,32 @@
 export default function Vorstellung() {
   return (
     <section id="vorstellung" className="py-16">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
+      <div className="max-w-4xl mx-auto px-4">
+        <p className="text-honig-700 uppercase tracking-widest text-xs mb-3 text-center">
+          Aus Studernheim, für Studernheim
+        </p>
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">
           Der Imker hinter dem Honig
         </h2>
-        <p className="text-lg leading-relaxed text-honig-900/90">
-          Ich imkere seit über zehn Jahren mit Leidenschaft in der Region.
-          Meine Bienen bestäuben Streuobstwiesen, Hecken und wilde Kräuter –
-          genau das schmeckt man im Honig. Jedes Glas wird von Hand geschleudert,
-          gesiebt und abgefüllt.
-        </p>
+        <div className="text-lg leading-relaxed text-honig-900/90 space-y-4">
+          <p>
+            Ich imkere seit über zehn Jahren mitten in Studernheim – zwischen
+            Streuobstwiesen, Hecken und Wildkräutern, die meine Bienen täglich
+            anfliegen. Weil ich in der Region bleibe und meine Völker nicht
+            quer durchs Land kutschiere, schmeckt jeder Löffel nach dem, was
+            gerade vor unserer Haustür blüht.
+          </p>
+          <p>
+            Geerntet wird hier, geschleudert wird hier, abgefüllt wird hier.
+            Direkt in Studernheim, ohne lange Wege, ohne Zwischenhandel. So
+            bleibt, was die Bienen gesammelt haben, im Glas – und du bekommst
+            genau den Honig, den unsere Heimat gerade hergibt.
+          </p>
+          <p className="text-honig-700 italic">
+            „Wenn du wissen willst, wo dein Honig herkommt, kannst du vorbeikommen
+            und zugucken."
+          </p>
+        </div>
       </div>
     </section>
   )
