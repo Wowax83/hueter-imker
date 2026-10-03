@@ -2,10 +2,10 @@ import Reveal from './Reveal'
 import { ArrowRight, Phone } from 'lucide-react'
 
 function HoneycombBg() {
-  // Wabenstruktur im Section-Background
+  // Sehr dezente Wabenstruktur im Section-Hintergrund (Pattern)
   return (
     <svg
-      className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+      className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
     >
@@ -21,191 +21,89 @@ function HoneycombBg() {
 
 function Bee() {
   return (
-    <svg viewBox="0 0 200 160" className="w-44 sm:w-56 md:w-64" aria-hidden="true">
+    <svg viewBox="0 0 220 180" className="w-56 sm:w-72 md:w-80 lg:w-96 drop-shadow-[0_20px_40px_rgba(120,53,15,0.35)]" aria-hidden="true">
       <defs>
         <radialGradient id="beeBody" cx="0.4" cy="0.5">
-          <stop offset="0" stopColor="#fbbf24" />
-          <stop offset="1" stopColor="#b45309" />
+          <stop offset="0" stopColor="#fcd34d" />
+          <stop offset="0.6" stopColor="#f59e0b" />
+          <stop offset="1" stopColor="#92400e" />
         </radialGradient>
+        <linearGradient id="beeFluegel" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.95" />
+          <stop offset="1" stopColor="#fde68a" stopOpacity="0.7" />
+        </linearGradient>
+        <linearGradient id="beeStripe" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#3f2904" />
+          <stop offset="1" stopColor="#1f1502" />
+        </linearGradient>
       </defs>
-      {/* Flügel hinten */}
-      <ellipse cx="135" cy="35" rx="42" ry="20" fill="#fff" opacity="0.75" stroke="#78350f" strokeWidth="1" />
-      <ellipse cx="115" cy="50" rx="38" ry="18" fill="#fff" opacity="0.75" stroke="#78350f" strokeWidth="1" />
+
+      {/* Flügel hinten (mit sanftem Honig-Glow) */}
+      <ellipse cx="150" cy="40" rx="48" ry="22" fill="url(#beeFluegel)" stroke="#78350f" strokeWidth="1.2" opacity="0.85" />
+      <ellipse cx="125" cy="58" rx="44" ry="20" fill="url(#beeFluegel)" stroke="#78350f" strokeWidth="1.2" opacity="0.85" />
+
       {/* Hinterleib */}
-      <ellipse cx="100" cy="100" rx="55" ry="40" fill="url(#beeBody)" stroke="#78350f" strokeWidth="2" />
-      {/* Streifen */}
-      <path d="M62 75 Q100 68 138 75" stroke="#3f2904" strokeWidth="6" fill="none" opacity="0.85" />
-      <path d="M55 95 Q100 88 145 95" stroke="#3f2904" strokeWidth="6" fill="none" opacity="0.85" />
-      <path d="M62 115 Q100 122 138 115" stroke="#3f2904" strokeWidth="6" fill="none" opacity="0.85" />
+      <ellipse cx="115" cy="112" rx="65" ry="48" fill="url(#beeBody)" stroke="#78350f" strokeWidth="2.5" />
+
+      {/* Streifen - dunkler, satter */}
+      <path d="M70 82 Q115 74 162 82" stroke="url(#beeStripe)" strokeWidth="8" fill="none" strokeLinecap="round" />
+      <path d="M62 105 Q115 96 168 105" stroke="url(#beeStripe)" strokeWidth="8" fill="none" strokeLinecap="round" />
+      <path d="M70 130 Q115 138 162 130" stroke="url(#beeStripe)" strokeWidth="8" fill="none" strokeLinecap="round" />
+
+      {/* Körper-Glanz */}
+      <ellipse cx="95" cy="92" rx="22" ry="10" fill="#fff" opacity="0.45" />
+
       {/* Kopf */}
-      <circle cx="55" cy="105" r="22" fill="#78350f" />
+      <circle cx="62" cy="118" r="26" fill="#78350f" stroke="#3f2904" strokeWidth="1.5" />
+      <ellipse cx="58" cy="115" rx="8" ry="4" fill="#a86f3f" opacity="0.7" />
+
       {/* Fühler */}
-      <path d="M48 88 Q40 75 38 60" stroke="#3f2904" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      <path d="M52 86 Q50 72 52 58" stroke="#3f2904" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      <circle cx="38" cy="60" r="2.5" fill="#3f2904" />
-      <circle cx="52" cy="58" r="2.5" fill="#3f2904" />
+      <path d="M53 99 Q42 84 38 65" stroke="#3f2904" strokeWidth="3" fill="none" strokeLinecap="round" />
+      <path d="M58 97 Q56 80 58 62" stroke="#3f2904" strokeWidth="3" fill="none" strokeLinecap="round" />
+      <circle cx="38" cy="63" r="3.5" fill="#3f2904" />
+      <circle cx="58" cy="60" r="3.5" fill="#3f2904" />
+
       {/* Auge */}
-      <circle cx="48" cy="103" r="4" fill="#fef3c7" />
-      <circle cx="49" cy="103" r="2" fill="#000" />
+      <circle cx="52" cy="116" r="5" fill="#fef3c7" />
+      <circle cx="53" cy="116" r="2.5" fill="#000" />
+      <circle cx="54" cy="115" r="1" fill="#fff" />
+
+      {/* Mund */}
+      <path d="M40 130 Q42 134 46 132" stroke="#3f2904" strokeWidth="2" fill="none" strokeLinecap="round" />
     </svg>
   )
 }
 
-function HoneycombCluster() {
-  // Organischer Waben-Cluster: verschiedene Groessen, Honig-Verlauf,
-  // Glanzlichter, weiche Outlines. Liegt hinter der Biene.
-  // viewBox 0..420 x 0..420
-  type Cell = { cx: number; cy: number; r: number; tone: 'dark' | 'medium' | 'light' }
-
-  const cells: Cell[] = [
-    // Zentraler grosser Block
-    { cx: 210, cy: 210, r: 50, tone: 'dark' },
-    // naechste Ring
-    { cx: 145, cy: 210, r: 45, tone: 'medium' },
-    { cx: 275, cy: 210, r: 45, tone: 'medium' },
-    { cx: 210, cy: 145, r: 45, tone: 'medium' },
-    { cx: 210, cy: 275, r: 45, tone: 'medium' },
-    // diagonal oben links
-    { cx: 80, cy: 145, r: 42, tone: 'light' },
-    { cx: 145, cy: 80, r: 42, tone: 'dark' },
-    // diagonal oben rechts
-    { cx: 340, cy: 145, r: 42, tone: 'light' },
-    { cx: 275, cy: 80, r: 42, tone: 'dark' },
-    // diagonal unten links
-    { cx: 80, cy: 275, r: 42, tone: 'light' },
-    { cx: 145, cy: 340, r: 42, tone: 'dark' },
-    // diagonal unten rechts
-    { cx: 340, cy: 275, r: 42, tone: 'light' },
-    { cx: 275, cy: 340, r: 42, tone: 'dark' },
-    // Aussen klein
-    { cx: 35, cy: 210, r: 30, tone: 'light' },
-    { cx: 385, cy: 210, r: 30, tone: 'light' },
-    { cx: 210, cy: 35, r: 30, tone: 'light' },
-    { cx: 210, cy: 385, r: 30, tone: 'light' },
-    // ganz aussen winzig
-    { cx: 35, cy: 35, r: 22, tone: 'medium' },
-    { cx: 385, cy: 35, r: 22, tone: 'medium' },
-    { cx: 35, cy: 385, r: 22, tone: 'medium' },
-    { cx: 385, cy: 385, r: 22, tone: 'medium' },
-  ]
-
-  // Hexagon-Punkte (pointy-top orientation
-  function hexPoints(cx: number, cy: number, r: number): string {
-    const pts: string[] = []
-    for (let i = 0; i < 6; i++) {
-      const angle = (Math.PI / 3) * i - Math.PI / 2 // start oben
-      const x = cx + r * Math.cos(angle)
-      const y = cy + r * Math.sin(angle)
-      pts.push(`${x.toFixed(1)},${y.toFixed(1)}`)
-    }
-    return pts.join(' ')
-  }
-
-  const gradientFor = (id: string, tone: string) => (
-    <linearGradient id={id} x1="0" x2="0" y1="0" y2="1">
-      {tone === 'dark' ? (
-        <>
-          <stop offset="0" stopColor="#f59e0b" />
-          <stop offset="0.5" stopColor="#d97706" />
-          <stop offset="1" stopColor="#7c2d12" />
-        </>
-      ) : tone === 'medium' ? (
-        <>
-          <stop offset="0" stopColor="#fbbf24" />
-          <stop offset="0.6" stopColor="#f59e0b" />
-          <stop offset="1" stopColor="#b45309" />
-        </>
-      ) : (
-        <>
-          <stop offset="0" stopColor="#fde68a" />
-          <stop offset="1" stopColor="#f5b942" />
-        </>
-      )}
-    </linearGradient>
-  )
-
+function HoneycombHalo() {
+  // Dezenter Honig-Halo hinter der Biene - nur Glow + Outline-Ringe, keine dominante Wabenschar
   return (
-    <svg viewBox="0 0 420 420" className="absolute -inset-12 w-[calc(100%+6rem)]" aria-hidden="true">
+    <svg viewBox="0 0 400 400" className="absolute inset-0" aria-hidden="true">
       <defs>
-        {/* Verlaeufe pro Zelle */}
-        {cells.map((c, i) => (
-          <linearGradient key={c.cx} id={`wabe-${i}`} x1="0" x2="0" y1="0" y2="1">
-            {c.tone === 'dark' ? (
-              <>
-                <stop offset="0" stopColor="#f59e0b" />
-                <stop offset="0.5" stopColor="#d97706" />
-                <stop offset="1" stopColor="#7c2d12" />
-              </>
-            ) : c.tone === 'medium' ? (
-              <>
-                <stop offset="0" stopColor="#fbbf24" />
-                <stop offset="0.6" stopColor="#f59e0b" />
-                <stop offset="1" stopColor="#b45309" />
-              </>
-            ) : (
-              <>
-                <stop offset="0" stopColor="#fde68a" />
-                <stop offset="1" stopColor="#f5b942" />
-              </>
-            )}
-          </linearGradient>
-        ))}
-
-        {/* Glanzlicht-Filter (weicher Schein oben links pro Zelle) */}
-        <radialGradient id="shine" cx="0.3" cy="0.25" r="0.6">
-          <stop offset="0" stopColor="#fff" stopOpacity="0.65" />
-          <stop offset="0.5" stopColor="#fff" stopOpacity="0.15" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#fbbf24" stopOpacity="0.5" />
+          <stop offset="0.6" stopColor="#f5b942" stopOpacity="0.18" />
+          <stop offset="1" stopColor="#fde68a" stopOpacity="0" />
         </radialGradient>
-
-        {/* Schatten-Filter fuer Tiefe */}
-        <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-          <feOffset dx="2" dy="3" result="offsetblur" />
-          <feComponentTransfer>
-            <feFuncA type="linear" slope="0.35" />
-          </feComponentTransfer>
-          <feMerge>
-            <feMergeNode />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
       </defs>
 
-      {/* Honig-* Hintergrund-Glow */}
-      <circle cx="210" cy="210" r="200" fill="#fef3c7" opacity="0.35" />
+      {/* Glow */}
+      <circle cx="200" cy="200" r="195" fill="url(#halo)" />
 
-      {/* Waben zeichnen */}
-      <g filter="url(#dropshadow)">
-        {cells.map((c, i) => (
-          <polygon
-            key={i}
-            points={hexPoints(c.cx, c.cy, c.r)}
-            fill={`url(#wabe-${i})`}
-            stroke="#78350f"
-            strokeWidth={c.tone === 'light' ? 1.2 : 1.8}
-            strokeLinejoin="round"
-          />
-        ))}
+      {/* Ein paar einzelne Waben als dezente Akzente (nicht-dominant) */}
+      <g opacity="0.35" stroke="#78350f" strokeWidth="1" fill="none">
+        <polygon points="40,40 60,30 80,40 80,60 60,70 40,60" />
+        <polygon points="340,80 360,70 380,80 380,100 360,110 340,100" />
+        <polygon points="60,330 80,320 100,330 100,350 80,360 60,350" />
+        <polygon points="320,330 340,320 360,330 360,350 340,360 320,350" />
       </g>
 
-      {/* Glanzlichter */}
-      {cells.map((c, i) => (
-        <polygon
-          key={`shine-${i}`}
-          points={hexPoints(c.cx, c.cy, c.r * 0.85)}
-          fill="url(#shine)"
-          pointerEvents="none"
-        />
-      ))}
-
-      {/* Zarte Honig-Tropfen in 4 zentralen Zellen */}
-      {cells.slice(0, 4).map((c, i) => (
-        <g key={`drop-${i}`} opacity="0.55">
-          <circle cx={c.cx - c.r * 0.15} cy={c.cy + c.r * 0.2} r="2.5" fill="#fff" />
-          <circle cx={c.cx - c.r * 0.15} cy={c.cy + c.r * 0.2} r="4" fill="#fff" opacity="0.4" />
-        </g>
-      ))}
+      {/* Subtile Hexagon-Outline-Ringe */}
+      <g opacity="0.18" stroke="#d97706" fill="none">
+        <polygon points="200,80 220,90 220,110 200,120 180,110 180,90" strokeWidth="1" />
+        <polygon points="200,280 220,290 220,310 200,320 180,310 180,290" strokeWidth="1" />
+        <polygon points="80,200 90,220 90,240 80,250 70,240 70,220" strokeWidth="1" />
+        <polygon points="320,200 330,220 330,240 320,250 310,240 310,220" strokeWidth="1" />
+      </g>
     </svg>
   )
 }
@@ -264,13 +162,13 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Rechte Seite: Biene + Waben-Cluster */}
-        <Reveal effect="pop" delay={300} className="flex justify-center">
-          <div className="relative">
-            <HoneycombCluster />
+        {/* Rechte Seite: Honig-Halo + Biene im Vordergrund */}
+        <div className="flex justify-center relative">
+          <HoneycombHalo />
+          <Reveal effect="pop" delay={150} className="relative z-10">
             <Bee />
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   )
