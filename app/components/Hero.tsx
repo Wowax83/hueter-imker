@@ -2,16 +2,21 @@ import Reveal from './Reveal'
 import { ArrowRight, Phone } from 'lucide-react'
 
 function HoneycombBg() {
-  // Sehr dezente Wabenstruktur im Section-Hintergrund (Pattern)
+  // Waben-Pattern im Section-Hintergrund - honigfarben, mit weisser Outline
   return (
     <svg
-      className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none"
+      className="absolute inset-0 w-full h-full opacity-[0.13] pointer-events-none"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
     >
       <defs>
-        <pattern id="hc-bg" width="72" height="62" patternUnits="userSpaceOnUse">
-          <polygon points="36,2 70,21 70,51 36,62 2,51 2,21" fill="none" stroke="#78350f" strokeWidth="1" />
+        <pattern id="hc-bg" width="80" height="70" patternUnits="userSpaceOnUse">
+          <polygon
+            points="40,4 76,24 76,54 40,74 4,54 4,24"
+            fill="#f5b942"
+            stroke="#ffffff"
+            strokeWidth="3"
+          />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#hc-bg)" />
@@ -20,90 +25,177 @@ function HoneycombBg() {
 }
 
 function Bee() {
+  // Vintage-Biene im Stil der Referenz: detailliert, anatomisch, schraffiert.
+  // Aufbau:
+  //  - Flügel (hinten, transparent mit Adern)
+  //  - Thorax (flauschig, mit feinen Strichen als Behaarung)
+  //  - Abdomen (segmentiert mit dunklen Bandern)
+  //  - Kopf (Mandibel, Fuhler, Auge)
+  //  - Beine (6, davon 2 vorne sichtbar)
   return (
-    <svg viewBox="0 0 220 180" className="w-56 sm:w-72 md:w-80 lg:w-96 drop-shadow-[0_20px_40px_rgba(120,53,15,0.35)]" aria-hidden="true">
+    <svg viewBox="0 0 280 280" className="w-64 sm:w-80 md:w-96 lg:w-[26rem]" aria-hidden="true">
       <defs>
-        <radialGradient id="beeBody" cx="0.4" cy="0.5">
-          <stop offset="0" stopColor="#fcd34d" />
-          <stop offset="0.6" stopColor="#f59e0b" />
-          <stop offset="1" stopColor="#92400e" />
+        {/* Koerper-Verlauf: dunkles Honigbraun */}
+        <radialGradient id="thoraxGrad" cx="0.4" cy="0.5" r="0.6">
+          <stop offset="0" stopColor="#a16207" />
+          <stop offset="1" stopColor="#3f2904" />
         </radialGradient>
-        <linearGradient id="beeFluegel" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#ffffff" stopOpacity="0.95" />
-          <stop offset="1" stopColor="#fde68a" stopOpacity="0.7" />
+        <radialGradient id="abdomenGrad" cx="0.5" cy="0.4" r="0.7">
+          <stop offset="0" stopColor="#92400e" />
+          <stop offset="0.7" stopColor="#451a03" />
+          <stop offset="1" stopColor="#1c0d02" />
+        </radialGradient>
+
+        {/* Fluessel-Verlauf: leicht blaeulich-transparent */}
+        <linearGradient id="wingGrad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#e0f2fe" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#fef3c7" stopOpacity="0.25" />
         </linearGradient>
-        <linearGradient id="beeStripe" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#3f2904" />
-          <stop offset="1" stopColor="#1f1502" />
-        </linearGradient>
+
+        {/* Schatten fuer Tiefe */}
+        <filter id="beeShadow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+          <feOffset dx="3" dy="6" result="offsetblur" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.4" />
+          </feComponentTransfer>
+          <feMerge>
+            <feMergeNode />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        {/* Clip-Pfad fuer Abdomen-Segmente (Stripe-Beschraenkung) */}
+        <clipPath id="abdomenClip">
+          <ellipse cx="140" cy="170" rx="62" ry="44" />
+        </clipPath>
       </defs>
 
-      {/* Flügel hinten (mit sanftem Honig-Glow) */}
-      <ellipse cx="150" cy="40" rx="48" ry="22" fill="url(#beeFluegel)" stroke="#78350f" strokeWidth="1.2" opacity="0.85" />
-      <ellipse cx="125" cy="58" rx="44" ry="20" fill="url(#beeFluegel)" stroke="#78350f" strokeWidth="1.2" opacity="0.85" />
+      <g filter="url(#beeShadow)">
+        {/* === FLUEGEL (hinten) === */}
+        <g transform="rotate(-20 175 110)">
+          <ellipse cx="180" cy="105" rx="60" ry="28" fill="url(#wingGrad)" stroke="#78350f" strokeWidth="1.2" />
+          {/* Fluegeladern */}
+          <g stroke="#78350f" strokeWidth="0.7" fill="none" opacity="0.7">
+            <path d="M125 100 Q160 95 230 105" />
+            <path d="M130 115 Q170 115 225 115" />
+            <path d="M135 90 Q165 80 220 90" />
+            <path d="M140 125 Q175 130 215 130" />
+            <path d="M150 80 Q170 75 195 80" />
+          </g>
+        </g>
+        <g transform="rotate(15 200 105)">
+          <ellipse cx="205" cy="115" rx="55" ry="24" fill="url(#wingGrad)" stroke="#78350f" strokeWidth="1.2" />
+          <g stroke="#78350f" strokeWidth="0.7" fill="none" opacity="0.7">
+            <path d="M155 110 Q185 105 250 115" />
+            <path d="M160 125 Q190 125 245 130" />
+            <path d="M165 100 Q190 95 240 105" />
+            <path d="M170 135 Q195 140 235 140" />
+          </g>
+        </g>
 
-      {/* Hinterleib */}
-      <ellipse cx="115" cy="112" rx="65" ry="48" fill="url(#beeBody)" stroke="#78350f" strokeWidth="2.5" />
+        {/* === THORAX (flauschig) === */}
+        <ellipse cx="135" cy="135" rx="38" ry="30" fill="url(#thoraxGrad)" />
+        {/* Thorax-Behaarung: feine gebogene Striche */}
+        <g stroke="#fef3c7" strokeWidth="0.6" fill="none" opacity="0.7">
+          {Array.from({ length: 60 }).map((_, i) => {
+            const angle = (i / 60) * Math.PI * 2
+            const cx = 135 + Math.cos(angle) * (20 + Math.random() * 12)
+            const cy = 135 + Math.sin(angle) * (20 + Math.random() * 10)
+            const len = 4 + Math.random() * 5
+            const dx = Math.cos(angle) * len
+            const dy = Math.sin(angle) * len
+            return <line key={i} x1={cx} y1={cy} x2={cx + dx} y2={cy + dy} />
+          })}
+        </g>
 
-      {/* Streifen - dunkler, satter */}
-      <path d="M70 82 Q115 74 162 82" stroke="url(#beeStripe)" strokeWidth="8" fill="none" strokeLinecap="round" />
-      <path d="M62 105 Q115 96 168 105" stroke="url(#beeStripe)" strokeWidth="8" fill="none" strokeLinecap="round" />
-      <path d="M70 130 Q115 138 162 130" stroke="url(#beeStripe)" strokeWidth="8" fill="none" strokeLinecap="round" />
+        {/* === ABDOMEN (segmentiert) === */}
+        <ellipse cx="170" cy="170" rx="62" ry="44" fill="url(#abdomenGrad)" />
 
-      {/* Körper-Glanz */}
-      <ellipse cx="95" cy="92" rx="22" ry="10" fill="#fff" opacity="0.45" />
+        {/* Segmentierungs-Stripes (dunkel-honig mit helleren Saeumen) */}
+        <g clipPath="url(#abdomenClip)">
+          <path d="M110 158 Q170 152 230 160" stroke="#1c0a02" strokeWidth="6" fill="none" />
+          <path d="M108 184 Q170 178 232 186" stroke="#1c0a02" strokeWidth="6" fill="none" />
+          <path d="M118 210 Q170 216 222 212" stroke="#1c0a02" strokeWidth="6" fill="none" />
+          {/* Honiggelbe Saeume zwischen Segmenten */}
+          <path d="M115 150 Q170 144 225 152" stroke="#d97706" strokeWidth="2" fill="none" opacity="0.8" />
+          <path d="M113 176 Q170 170 227 178" stroke="#d97706" strokeWidth="2" fill="none" opacity="0.8" />
+          <path d="M120 202 Q170 208 220 204" stroke="#d97706" strokeWidth="2" fill="none" opacity="0.8" />
+        </g>
 
-      {/* Kopf */}
-      <circle cx="62" cy="118" r="26" fill="#78350f" stroke="#3f2904" strokeWidth="1.5" />
-      <ellipse cx="58" cy="115" rx="8" ry="4" fill="#a86f3f" opacity="0.7" />
+        {/* Abdomen-Behaarung (subtiler als Thorax) */}
+        <g stroke="#fde68a" strokeWidth="0.4" fill="none" opacity="0.5">
+          {Array.from({ length: 35 }).map((_, i) => {
+            const angle = (i / 35) * Math.PI * 2
+            const cx = 170 + Math.cos(angle) * (40 + (i % 3) * 8)
+            const cy = 170 + Math.sin(angle) * (30 + (i % 4) * 5)
+            const len = 3 + (i % 3)
+            const dx = Math.cos(angle) * len
+            const dy = Math.sin(angle) * len
+            return <line key={i} x1={cx} y1={cy} x2={cx + dx} y2={cy + dy} />
+          })}
+        </g>
 
-      {/* Fühler */}
-      <path d="M53 99 Q42 84 38 65" stroke="#3f2904" strokeWidth="3" fill="none" strokeLinecap="round" />
-      <path d="M58 97 Q56 80 58 62" stroke="#3f2904" strokeWidth="3" fill="none" strokeLinecap="round" />
-      <circle cx="38" cy="63" r="3.5" fill="#3f2904" />
-      <circle cx="58" cy="60" r="3.5" fill="#3f2904" />
+        {/* === KOPF === */}
+        <ellipse cx="80" cy="155" rx="22" ry="26" fill="#1c0a02" />
+        {/* Auge (grosser Facettenaugen-Look) */}
+        <ellipse cx="73" cy="148" rx="9" ry="13" fill="#1c0a02" stroke="#d97706" strokeWidth="1" />
+        <ellipse cx="73" cy="148" rx="7" ry="11" fill="#451a03" />
+        {/* Augen-Facetten (gepunktete Struktur) */}
+        <g fill="#d97706" opacity="0.5">
+          <circle cx="71" cy="145" r="0.8" />
+          <circle cx="74" cy="143" r="0.7" />
+          <circle cx="76" cy="147" r="0.8" />
+          <circle cx="73" cy="150" r="0.7" />
+          <circle cx="70" cy="152" r="0.8" />
+        </g>
+        {/* Augen-Glanz */}
+        <ellipse cx="71" cy="144" rx="2" ry="2.5" fill="#fff" opacity="0.7" />
 
-      {/* Auge */}
-      <circle cx="52" cy="116" r="5" fill="#fef3c7" />
-      <circle cx="53" cy="116" r="2.5" fill="#000" />
-      <circle cx="54" cy="115" r="1" fill="#fff" />
+        {/* Mandibel */}
+        <path d="M62 175 Q65 182 70 178" stroke="#1c0a02" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M68 175 Q70 180 75 178" stroke="#1c0a02" strokeWidth="1.5" fill="none" strokeLinecap="round" />
 
-      {/* Mund */}
-      <path d="M40 130 Q42 134 46 132" stroke="#3f2904" strokeWidth="2" fill="none" strokeLinecap="round" />
+        {/* Fühler (geknickt) */}
+        <path d="M73 132 Q60 115 65 95" stroke="#1c0a02" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M65 95 L70 92" stroke="#1c0a02" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="65" cy="95" r="1.5" fill="#d97706" />
+        <path d="M85 130 Q80 113 88 100" stroke="#1c0a02" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <circle cx="88" cy="100" r="1.5" fill="#d97706" />
+
+        {/* === BEINE (3 sichtbar, jeweils 2 Segmente) === */}
+        <g stroke="#1c0a02" strokeWidth="2" fill="none" strokeLinecap="round">
+          {/* Vorderbein links */}
+          <path d="M120 145 L108 175 L115 195" />
+          <path d="M120 145 L108 145 L100 158" />
+          {/* Mittelbein links */}
+          <path d="M140 158 L130 188 L132 210" />
+          {/* Hinterbein rechts */}
+          <path d="M180 195 L195 220 L210 235" />
+        </g>
+
+        {/* === Korper-Glanz (Highlight auf Thorax) === */}
+        <ellipse cx="120" cy="125" rx="10" ry="6" fill="#fef3c7" opacity="0.4" />
+
+        {/* === Stinger === */}
+        <path d="M225 178 L240 180 L225 184 Z" fill="#1c0a02" />
+      </g>
     </svg>
   )
 }
 
 function HoneycombHalo() {
-  // Dezenter Honig-Halo hinter der Biene - nur Glow + Outline-Ringe, keine dominante Wabenschar
+  // Dezenter radialer Honig-Glow direkt hinter der Biene
   return (
-    <svg viewBox="0 0 400 400" className="absolute inset-0" aria-hidden="true">
+    <svg viewBox="0 0 400 400" className="absolute inset-0 z-0" aria-hidden="true">
       <defs>
-        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#fbbf24" stopOpacity="0.5" />
-          <stop offset="0.6" stopColor="#f5b942" stopOpacity="0.18" />
+        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.55">
+          <stop offset="0" stopColor="#fbbf24" stopOpacity="0.4" />
+          <stop offset="0.5" stopColor="#f59e0b" stopOpacity="0.15" />
           <stop offset="1" stopColor="#fde68a" stopOpacity="0" />
         </radialGradient>
       </defs>
-
-      {/* Glow */}
-      <circle cx="200" cy="200" r="195" fill="url(#halo)" />
-
-      {/* Ein paar einzelne Waben als dezente Akzente (nicht-dominant) */}
-      <g opacity="0.35" stroke="#78350f" strokeWidth="1" fill="none">
-        <polygon points="40,40 60,30 80,40 80,60 60,70 40,60" />
-        <polygon points="340,80 360,70 380,80 380,100 360,110 340,100" />
-        <polygon points="60,330 80,320 100,330 100,350 80,360 60,350" />
-        <polygon points="320,330 340,320 360,330 360,350 340,360 320,350" />
-      </g>
-
-      {/* Subtile Hexagon-Outline-Ringe */}
-      <g opacity="0.18" stroke="#d97706" fill="none">
-        <polygon points="200,80 220,90 220,110 200,120 180,110 180,90" strokeWidth="1" />
-        <polygon points="200,280 220,290 220,310 200,320 180,310 180,290" strokeWidth="1" />
-        <polygon points="80,200 90,220 90,240 80,250 70,240 70,220" strokeWidth="1" />
-        <polygon points="320,200 330,220 330,240 320,250 310,240 310,220" strokeWidth="1" />
-      </g>
+      <circle cx="200" cy="200" r="190" fill="url(#halo)" />
     </svg>
   )
 }
@@ -162,7 +254,7 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Rechte Seite: Honig-Halo + Biene im Vordergrund */}
+        {/* Rechte Seite: Halo + detaillierte Vintage-Biene im Vordergrund */}
         <div className="flex justify-center relative">
           <HoneycombHalo />
           <Reveal effect="pop" delay={150} className="relative z-10">
