@@ -2,19 +2,19 @@ import Reveal from './Reveal'
 import { ArrowRight, Phone } from 'lucide-react'
 
 function HoneycombBg() {
-  // Dezente Wabenstruktur im Hintergrund
+  // Wabenstruktur im Section-Background
   return (
     <svg
-      className="absolute inset-0 w-full h-full opacity-[0.07] pointer-events-none"
+      className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
     >
       <defs>
-        <pattern id="hc" width="56" height="48" patternUnits="userSpaceOnUse" patternTransform="scale(1)">
-          <polygon points="28,0 56,16 56,40 28,48 0,40 0,16" fill="none" stroke="#78350f" strokeWidth="1.5" />
+        <pattern id="hc-bg" width="72" height="62" patternUnits="userSpaceOnUse">
+          <polygon points="36,2 70,21 70,51 36,62 2,51 2,21" fill="none" stroke="#78350f" strokeWidth="1" />
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill="url(#hc)" />
+      <rect width="100%" height="100%" fill="url(#hc-bg)" />
     </svg>
   )
 }
@@ -34,19 +34,178 @@ function Bee() {
       {/* Hinterleib */}
       <ellipse cx="100" cy="100" rx="55" ry="40" fill="url(#beeBody)" stroke="#78350f" strokeWidth="2" />
       {/* Streifen */}
-      <path d="M62 75 Q100 68 138 75" stroke="#3f2904" stroke-width="6" fill="none" opacity="0.85" />
-      <path d="M55 95 Q100 88 145 95" stroke="#3f2904" stroke-width="6" fill="none" opacity="0.85" />
-      <path d="M62 115 Q100 122 138 115" stroke="#3f2904" stroke-width="6" fill="none" opacity="0.85" />
+      <path d="M62 75 Q100 68 138 75" stroke="#3f2904" strokeWidth="6" fill="none" opacity="0.85" />
+      <path d="M55 95 Q100 88 145 95" stroke="#3f2904" strokeWidth="6" fill="none" opacity="0.85" />
+      <path d="M62 115 Q100 122 138 115" stroke="#3f2904" strokeWidth="6" fill="none" opacity="0.85" />
       {/* Kopf */}
       <circle cx="55" cy="105" r="22" fill="#78350f" />
       {/* Fühler */}
-      <path d="M48 88 Q40 75 38 60" stroke="#3f2904" stroke-width="2.5" fill="none" strokeLinecap="round" />
-      <path d="M52 86 Q50 72 52 58" stroke="#3f2904" stroke-width="2.5" fill="none" strokeLinecap="round" />
+      <path d="M48 88 Q40 75 38 60" stroke="#3f2904" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <path d="M52 86 Q50 72 52 58" stroke="#3f2904" strokeWidth="2.5" fill="none" strokeLinecap="round" />
       <circle cx="38" cy="60" r="2.5" fill="#3f2904" />
       <circle cx="52" cy="58" r="2.5" fill="#3f2904" />
       {/* Auge */}
       <circle cx="48" cy="103" r="4" fill="#fef3c7" />
       <circle cx="49" cy="103" r="2" fill="#000" />
+    </svg>
+  )
+}
+
+function HoneycombCluster() {
+  // Organischer Waben-Cluster: verschiedene Groessen, Honig-Verlauf,
+  // Glanzlichter, weiche Outlines. Liegt hinter der Biene.
+  // viewBox 0..420 x 0..420
+  type Cell = { cx: number; cy: number; r: number; tone: 'dark' | 'medium' | 'light' }
+
+  const cells: Cell[] = [
+    // Zentraler grosser Block
+    { cx: 210, cy: 210, r: 50, tone: 'dark' },
+    // naechste Ring
+    { cx: 145, cy: 210, r: 45, tone: 'medium' },
+    { cx: 275, cy: 210, r: 45, tone: 'medium' },
+    { cx: 210, cy: 145, r: 45, tone: 'medium' },
+    { cx: 210, cy: 275, r: 45, tone: 'medium' },
+    // diagonal oben links
+    { cx: 80, cy: 145, r: 42, tone: 'light' },
+    { cx: 145, cy: 80, r: 42, tone: 'dark' },
+    // diagonal oben rechts
+    { cx: 340, cy: 145, r: 42, tone: 'light' },
+    { cx: 275, cy: 80, r: 42, tone: 'dark' },
+    // diagonal unten links
+    { cx: 80, cy: 275, r: 42, tone: 'light' },
+    { cx: 145, cy: 340, r: 42, tone: 'dark' },
+    // diagonal unten rechts
+    { cx: 340, cy: 275, r: 42, tone: 'light' },
+    { cx: 275, cy: 340, r: 42, tone: 'dark' },
+    // Aussen klein
+    { cx: 35, cy: 210, r: 30, tone: 'light' },
+    { cx: 385, cy: 210, r: 30, tone: 'light' },
+    { cx: 210, cy: 35, r: 30, tone: 'light' },
+    { cx: 210, cy: 385, r: 30, tone: 'light' },
+    // ganz aussen winzig
+    { cx: 35, cy: 35, r: 22, tone: 'medium' },
+    { cx: 385, cy: 35, r: 22, tone: 'medium' },
+    { cx: 35, cy: 385, r: 22, tone: 'medium' },
+    { cx: 385, cy: 385, r: 22, tone: 'medium' },
+  ]
+
+  // Hexagon-Punkte (pointy-top orientation
+  function hexPoints(cx: number, cy: number, r: number): string {
+    const pts: string[] = []
+    for (let i = 0; i < 6; i++) {
+      const angle = (Math.PI / 3) * i - Math.PI / 2 // start oben
+      const x = cx + r * Math.cos(angle)
+      const y = cy + r * Math.sin(angle)
+      pts.push(`${x.toFixed(1)},${y.toFixed(1)}`)
+    }
+    return pts.join(' ')
+  }
+
+  const gradientFor = (id: string, tone: string) => (
+    <linearGradient id={id} x1="0" x2="0" y1="0" y2="1">
+      {tone === 'dark' ? (
+        <>
+          <stop offset="0" stopColor="#f59e0b" />
+          <stop offset="0.5" stopColor="#d97706" />
+          <stop offset="1" stopColor="#7c2d12" />
+        </>
+      ) : tone === 'medium' ? (
+        <>
+          <stop offset="0" stopColor="#fbbf24" />
+          <stop offset="0.6" stopColor="#f59e0b" />
+          <stop offset="1" stopColor="#b45309" />
+        </>
+      ) : (
+        <>
+          <stop offset="0" stopColor="#fde68a" />
+          <stop offset="1" stopColor="#f5b942" />
+        </>
+      )}
+    </linearGradient>
+  )
+
+  return (
+    <svg viewBox="0 0 420 420" className="absolute -inset-12 w-[calc(100%+6rem)]" aria-hidden="true">
+      <defs>
+        {/* Verlaeufe pro Zelle */}
+        {cells.map((c, i) => (
+          <linearGradient key={c.cx} id={`wabe-${i}`} x1="0" x2="0" y1="0" y2="1">
+            {c.tone === 'dark' ? (
+              <>
+                <stop offset="0" stopColor="#f59e0b" />
+                <stop offset="0.5" stopColor="#d97706" />
+                <stop offset="1" stopColor="#7c2d12" />
+              </>
+            ) : c.tone === 'medium' ? (
+              <>
+                <stop offset="0" stopColor="#fbbf24" />
+                <stop offset="0.6" stopColor="#f59e0b" />
+                <stop offset="1" stopColor="#b45309" />
+              </>
+            ) : (
+              <>
+                <stop offset="0" stopColor="#fde68a" />
+                <stop offset="1" stopColor="#f5b942" />
+              </>
+            )}
+          </linearGradient>
+        ))}
+
+        {/* Glanzlicht-Filter (weicher Schein oben links pro Zelle) */}
+        <radialGradient id="shine" cx="0.3" cy="0.25" r="0.6">
+          <stop offset="0" stopColor="#fff" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#fff" stopOpacity="0.15" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Schatten-Filter fuer Tiefe */}
+        <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+          <feOffset dx="2" dy="3" result="offsetblur" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.35" />
+          </feComponentTransfer>
+          <feMerge>
+            <feMergeNode />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      {/* Honig-* Hintergrund-Glow */}
+      <circle cx="210" cy="210" r="200" fill="#fef3c7" opacity="0.35" />
+
+      {/* Waben zeichnen */}
+      <g filter="url(#dropshadow)">
+        {cells.map((c, i) => (
+          <polygon
+            key={i}
+            points={hexPoints(c.cx, c.cy, c.r)}
+            fill={`url(#wabe-${i})`}
+            stroke="#78350f"
+            strokeWidth={c.tone === 'light' ? 1.2 : 1.8}
+            strokeLinejoin="round"
+          />
+        ))}
+      </g>
+
+      {/* Glanzlichter */}
+      {cells.map((c, i) => (
+        <polygon
+          key={`shine-${i}`}
+          points={hexPoints(c.cx, c.cy, c.r * 0.85)}
+          fill="url(#shine)"
+          pointerEvents="none"
+        />
+      ))}
+
+      {/* Zarte Honig-Tropfen in 4 zentralen Zellen */}
+      {cells.slice(0, 4).map((c, i) => (
+        <g key={`drop-${i}`} opacity="0.55">
+          <circle cx={c.cx - c.r * 0.15} cy={c.cy + c.r * 0.2} r="2.5" fill="#fff" />
+          <circle cx={c.cx - c.r * 0.15} cy={c.cy + c.r * 0.2} r="4" fill="#fff" opacity="0.4" />
+        </g>
+      ))}
     </svg>
   )
 }
@@ -105,35 +264,10 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Rechte Seite: Biene + Waben */}
+        {/* Rechte Seite: Biene + Waben-Cluster */}
         <Reveal effect="pop" delay={300} className="flex justify-center">
           <div className="relative">
-            {/* Wabe dahinter */}
-            <svg viewBox="0 0 280 280" className="absolute -inset-6 w-[calc(100%+3rem)]" aria-hidden="true">
-              <defs>
-                <linearGradient id="wabeFill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stopColor="#f5b942" />
-                  <stop offset="1" stopColor="#d97706" />
-                </linearGradient>
-              </defs>
-              {Array.from({ length: 5 }).map((_, row) =>
-                Array.from({ length: 4 }).map((_, col) => {
-                  const cx = 50 + col * 60 + (row % 2 === 0 ? 0 : 30)
-                  const cy = 50 + row * 50
-                  if (cx > 280) return null
-                  return (
-                    <polygon
-                      key={`${row}-${col}`}
-                      points={`${cx},${cy - 28} ${cx + 28},${cy - 14} ${cx + 28},${cy + 14} ${cx},${cy + 28} ${cx - 28},${cy + 14} ${cx - 28},${cy - 14}`}
-                      fill="url(#wabeFill)"
-                      stroke="#78350f"
-                      strokeWidth="2"
-                      opacity="0.85"
-                    />
-                  )
-                })
-              )}
-            </svg>
+            <HoneycombCluster />
             <Bee />
           </div>
         </Reveal>
