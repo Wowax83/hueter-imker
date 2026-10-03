@@ -43,8 +43,8 @@ export async function POST(req: Request) {
       .join('')
 
     await getResend().emails.send({
-      from: process.env.HONEY_MAIL_FROM || 'Hueter Imker <onboarding@resend.dev>',
-      to: process.env.HONEY_MAIL_TO || 'imker@example.de',
+      from: process.env.HONEY_MAIL_FROM || 'Bienen Hueter Pfalz <onboarding@resend.dev>',
+      to: process.env.HONEY_MAIL_TO || 'bienen.hueter.pfalz@gmail.com',
       replyTo: email,
       subject: `Neue Honig-Bestellung von ${name}`,
       html: `

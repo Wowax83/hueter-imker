@@ -34,10 +34,10 @@ export async function POST(req: Request) {
     }
 
     await getResend().emails.send({
-      from: process.env.HONEY_MAIL_FROM || 'Hueter Imker <onboarding@resend.dev>',
-      to: process.env.HONEY_MAIL_TO || 'imker@example.de',
+      from: process.env.HONEY_MAIL_FROM || 'Bienen Hueter Pfalz <onboarding@resend.dev>',
+      to: process.env.HONEY_MAIL_TO || 'bienen.hueter.pfalz@gmail.com',
       replyTo: email,
-      subject: `Neue Kontaktanfrage von ${name}`,
+      subject: `Kontaktanfrage von ${name}`,
       html: `
         <p><strong>Name:</strong> ${escape(name)}</p>
         <p><strong>E-Mail:</strong> ${escape(email)}</p>
