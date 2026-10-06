@@ -4,7 +4,7 @@ Webauftritt von Alexander Hüter (Hüter Imker) in Frankenthal/Pfalz. Honig-Verk
 
 **Repo:** https://github.com/Wowax83/hueter-imker
 **Live:** https://hueter-imker.vercel.app
-**Lokal:** `/store/KI/KI Projekt/Projekte/Clone/Imker-Website/`
+**Lokal:** `/store/KI/KI Projekt/Projekt/Bienen-Hueter-Pfalz/`
 **Stack:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind 3 · lucide-react · Resend (Mail)
 
 ---
@@ -35,7 +35,7 @@ cp .env.example .env
 # Werte aus /store/KI/KI Projekt/new.txt uebernehmen
 
 # ACHTUNG: /store unterstuetzt keine Symlinks. Bei "EIO: i/o error, symlink":
-#   cp -r "/store/KI/KI Projekt/Projekte/Clone/Imker-Website" /opt/data/
+#   cp -r "/store/KI/KI Projekt/Projekt/Bienen-Hueter-Pfalz" /opt/data/
 #   cd /opt/data/Imker-Website
 #   npm install
 npm install
