@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Datenschutzerklärung – Hüter Imker',
+  title: 'Datenschutzerklärung – Bienen Hüter Pfalz',
   description: 'Informationen zur Verarbeitung personenbezogener Daten',
 }
 
@@ -32,14 +32,18 @@ export default function DatenschutzPage() {
           <p>
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:
             <br />
-            Hüter Imker, [Vorname Nachname], [Anschrift]
+            Alexander Hüter
+            <br />
+            Bienen Hüter Pfalz
+            <br />
+            Oggersheimerstr. 14, 67227 Frankenthal
             <br />
             E-Mail:{' '}
             <a
-              href="mailto:imker.ag@gmail.com"
+              href="mailto:bienen.hueter.pfalz@gmail.com"
               className="text-honig-700 hover:underline"
             >
-              imker.ag@gmail.com
+              bienen.hueter.pfalz@gmail.com
             </a>
           </p>
         </div>
@@ -69,56 +73,26 @@ export default function DatenschutzPage() {
 
         <div>
           <h2 className="text-xl font-semibold mb-2">
-            4. Kontaktformular und Bestellformular
+            4. Kontaktaufnahme
           </h2>
           <p>
-            Bei Nutzung des Kontakt- oder Bestellformulars erheben wir die von
-            dir angegebenen Daten (Name, E-Mail-Adresse, ggf. Lieferadresse,
-            Nachricht bzw. Bestellpositionen), um deine Anfrage zu bearbeiten
-            bzw. deine Bestellung entgegenzunehmen.
-          </p>
-          <p className="mt-2">
-            Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6
-            Abs. 1 lit. b DSGVO (vorvertragliche bzw. vertragliche Maßnahme).
-            Die Daten werden nicht für Werbezwecke verwendet und nicht an
-            Dritte weitergegeben – mit Ausnahme des unten genannten
-            Mail-Versand-Dienstleisters.
-          </p>
-          <p className="mt-2">
-            Die über das Formular übermittelten Daten werden so lange
-            gespeichert, wie es für die Bearbeitung deiner Anfrage erforderlich
-            ist, längstens jedoch bis zum Ablauf der gesetzlichen
-            Aufbewahrungsfristen.
+            Derzeit werden auf dieser Website keine Kontakt- oder
+            Bestellformulare angeboten. Du erreichst uns direkt per Telefon
+            oder E-Mail. Bei einer Kontaktaufnahme verarbeiten wir die von dir
+            übermittelten Daten ausschließlich zur Bearbeitung deiner Anfrage
+            (Art. 6 Abs. 1 lit. b DSGVO).
           </p>
         </div>
 
         <div>
           <h2 className="text-xl font-semibold mb-2">
-            5. Mail-Versand via Resend
+            5. E-Mail-Kommunikation
           </h2>
           <p>
-            Für den Versand von E-Mails (Bestellbestätigungen und Antworten auf
-            Kontaktanfragen) nutzen wir den Dienst{' '}
-            <strong>Resend</strong> (Anbieter: Resend Inc., 2261 Market Street
-            #5039, San Francisco, CA 94114, USA).
-          </p>
-          <p className="mt-2">
-            Resend verarbeitet die E-Mail-Adressen der Absender und Empfänger
-            sowie den Inhalt der Nachricht. Mit Resend wurde ein
-            Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO
-            abgeschlossen. Die Datenübertragung in die USA erfolgt auf
-            Grundlage der EU-Standardvertragsklauseln.
-          </p>
-          <p className="mt-2">
-            Weitere Informationen zum Datenschutz bei Resend:{' '}
-            <a
-              href="https://resend.com/legal/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-honig-700 hover:underline"
-            >
-              resend.com/legal/privacy
-            </a>
+            Da derzeit keine Formulare auf dieser Website eingesetzt werden,
+            erfolgt kein automatisierter E-Mail-Versand über Drittanbieter.
+            Kontaktanfragen per E-Mail werden direkt und ohne Einschaltung
+            externer Dienstleister bearbeitet.
           </p>
         </div>
 
