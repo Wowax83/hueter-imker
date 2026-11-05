@@ -3,7 +3,6 @@ import AsiatischeHornisse from './components/AsiatischeHornisse'
 import BeratungSection from './components/BeratungSection'
 import Vorstellung from './components/Vorstellung'
 import HonigListe from './components/HonigListe'
-import BestellFormular from './components/BestellFormular'
 import Footer from './components/Footer'
 import Nav from './components/Nav'
 import { ContactBar } from './components/ContactBar'
@@ -19,7 +18,6 @@ export default function Home() {
       <BeratungSection />
       <Vorstellung />
       <HonigListe />
-      <BestellFormular />
       <Footer />
     </main>
   )
