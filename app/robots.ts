@@ -3,6 +3,6 @@ import type { MetadataRoute } from 'next'
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: '*', allow: '/' }],
-    sitemap: 'https://hueter-imker.de/sitemap.xml',
+    sitemap: 'https://bienenhueterpfalz.de/sitemap.xml',
   }
 }

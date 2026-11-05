@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hueter-imker.de'),
+  metadataBase: new URL('https://bienenhueterpfalz.de'),
   title: {
     default: 'Wespen & Hornissen entfernen Frankenthal – Bienen Hüter Pfalz',
     template: '%s | Bienen Hüter Pfalz',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       'Wespen- und Hornissennester fachgerecht entfernen – auch die invasive Asiatische Hornisse. Frankenthal und Umgebung.',
     type: 'website',
     locale: 'de_DE',
-    url: 'https://hueter-imker.de',
+    url: 'https://bienenhueterpfalz.de',
     siteName: 'Bienen Hüter Pfalz',
   },
   robots: {
@@ -27,11 +27,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://hueter-imker.de/#business',
+  '@id': 'https://bienenhueterpfalz.de/#business',
   name: 'Bienen Hüter Pfalz',
   description:
     'Wespen- und Hornissennester fachgerecht entfernen sowie die invasive Asiatische Hornisse. Honig aus Frankenthal und der Pfalz.',
-  url: 'https://hueter-imker.de',
+  url: 'https://bienenhueterpfalz.de',
   telephone: '+4915203180359',
   email: 'bienen.hueter.pfalz@gmail.com',
   address: {
