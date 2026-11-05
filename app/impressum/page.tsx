@@ -53,7 +53,7 @@ export default function ImpressumPage() {
 
         <div>
           <h2 className="text-xl font-semibold mb-2 font-serif">
-            Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
           </h2>
           <p>
             Alexander Hüter
