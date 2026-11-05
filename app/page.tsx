@@ -4,7 +4,6 @@ import BeratungSection from './components/BeratungSection'
 import Vorstellung from './components/Vorstellung'
 import HonigListe from './components/HonigListe'
 import BestellFormular from './components/BestellFormular'
-import KontaktFormular from './components/KontaktFormular'
 import Footer from './components/Footer'
 import Nav from './components/Nav'
 import { ContactBar } from './components/ContactBar'
@@ -21,7 +20,6 @@ export default function Home() {
       <Vorstellung />
       <HonigListe />
       <BestellFormular />
-      <KontaktFormular />
       <Footer />
     </main>
   )

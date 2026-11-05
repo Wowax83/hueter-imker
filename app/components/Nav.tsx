@@ -23,7 +23,6 @@ export default function Nav() {
           <a href="#hornisse" className="hover:text-honig-700">Asiatische Hornisse</a>
           <a href="#nester" className="hover:text-honig-700">Nester entfernen</a>
           <a href="#honig" className="hover:text-honig-700">Honig</a>
-          <a href="#kontakt" className="hover:text-honig-700">Kontakt</a>
         </div>
         <a href="tel:+4915203180359" className="sm:hidden bg-honig-600 text-white px-3 py-1.5 rounded-lg text-sm">
           Anrufen

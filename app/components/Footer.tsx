@@ -37,8 +37,9 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="pt-6 border-t border-honig-700/40 text-xs text-honig-200/60 text-center">
-          © {new Date().getFullYear()} Bienen Hüter Pfalz · Alexander Hüter
+        <div className="pt-6 border-t border-honig-700/40 text-xs text-honig-200/60 text-center space-y-1">
+          <p>© {new Date().getFullYear()} Bienen Hüter Pfalz · Alexander Hüter</p>
+          <p>Mit Liebe gemacht <span className="text-honig-300" aria-hidden="true">❤️</span></p>
         </div>
       </div>
     </footer>
