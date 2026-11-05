@@ -3,12 +3,18 @@ import { ArrowRight, Phone, Bug } from 'lucide-react'
 
 function MeshGradient() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      <div className="absolute -top-28 -left-24 w-[32rem] h-[32rem] rounded-full bg-amber-300/40 blur-3xl" />
-      <div className="absolute top-1/4 -right-32 w-[36rem] h-[36rem] rounded-full bg-amber-200/40 blur-3xl" />
-      <div className="absolute -bottom-32 left-1/4 w-[30rem] h-[30rem] rounded-full bg-honig-500/25 blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[26rem] h-[26rem] rounded-full bg-honig-100/60 blur-3xl" />
-    </div>
+    <div
+      className="absolute inset-0 pointer-events-none"
+      aria-hidden="true"
+      style={{
+        background: [
+          'radial-gradient(55% 55% at 18% 12%, rgba(251,191,36,0.62) 0%, rgba(251,191,36,0) 65%)',
+          'radial-gradient(48% 48% at 84% 26%, rgba(245,158,11,0.5) 0%, rgba(245,158,11,0) 65%)',
+          'radial-gradient(52% 52% at 26% 86%, rgba(217,119,6,0.4) 0%, rgba(217,119,6,0) 65%)',
+          'radial-gradient(44% 44% at 54% 50%, rgba(252,211,77,0.55) 0%, rgba(252,211,77,0) 65%)',
+        ].join(', '),
+      }}
+    />
   )
 }
 
