@@ -26,24 +26,25 @@ const services = [
 
 export default function BeratungSection() {
   return (
-    <section id="beratung" className="py-16 bg-[#fffdf6] border-y border-honig-200">
+    <section id="nester" className="py-16 bg-[#fffdf6] border-y border-honig-200">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-10">
           <Reveal effect="fade-up" delay={0}>
             <p className="text-honig-700 uppercase tracking-[0.18em] text-xs mb-2 font-medium">
-              Auch wenn's nicht um Honig geht
+              Wespen · Hornissen · Asiatische Hornisse
             </p>
           </Reveal>
           <Reveal effect="pop" delay={120}>
             <h2 className="font-serif text-3xl md:text-5xl font-bold mb-3">
-              Wespen- &amp; Hornissenberatung
+              Nester entfernen
             </h2>
           </Reveal>
           <Reveal effect="fade-up" delay={260}>
             <p className="text-honig-700 max-w-2xl mx-auto">
-              Wespennester im Rollladenkasten? Hornissen unter dem Dachvorsprung?
-              Nicht jedes Nest muss nicht entfernt, und nicht jedes Insekt ist
-              gefährlich. Ich berate ruhig und sachlich – und helfe, wenn es nötig ist.
+              Wespennest im Rollladenkasten? Hornissen unter dem Dachvorsprung? Oder
+              Verdacht auf die invasive Asiatische Hornisse? Nicht jedes Nest muss weg,
+              und nicht jedes Insekt ist gefährlich. Ich berate ruhig und sachlich –
+              und entferne, was wirklich entfernt werden muss.
             </p>
           </Reveal>
         </div>

@@ -56,10 +56,10 @@ export default function KontaktFormular() {
           </Reveal>
           <Reveal effect="fade-up" delay={380}>
             <a
-              href="mailto:imker.ag@gmail.com"
+              href="mailto:bienen.hueter.pfalz@gmail.com"
               className="inline-flex items-center gap-2 mt-4 text-honig-700 hover:text-honig-900 underline-offset-4 hover:underline"
             >
-              <Mail size={16} /> imker.ag@gmail.com
+              <Mail size={16} /> bienen.hueter.pfalz@gmail.com
             </a>
           </Reveal>
         </div>

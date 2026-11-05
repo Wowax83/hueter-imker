@@ -1,7 +1,8 @@
 import Hero from './components/Hero'
+import AsiatischeHornisse from './components/AsiatischeHornisse'
+import BeratungSection from './components/BeratungSection'
 import Vorstellung from './components/Vorstellung'
 import HonigListe from './components/HonigListe'
-import BeratungSection from './components/BeratungSection'
 import BestellFormular from './components/BestellFormular'
 import KontaktFormular from './components/KontaktFormular'
 import Footer from './components/Footer'
@@ -15,9 +16,10 @@ export default function Home() {
       <ContactBar />
       <Nav />
       <Hero />
+      <AsiatischeHornisse />
+      <BeratungSection />
       <Vorstellung />
       <HonigListe />
-      <BeratungSection />
       <BestellFormular />
       <KontaktFormular />
       <Footer />

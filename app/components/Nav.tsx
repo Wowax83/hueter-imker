@@ -20,14 +20,13 @@ export default function Nav() {
           </div>
         </a>
         <div className="hidden sm:flex gap-5 text-sm text-honig-900">
-          <a href="#vorstellung" className="hover:text-honig-700">Über uns</a>
+          <a href="#hornisse" className="hover:text-honig-700">Asiatische Hornisse</a>
+          <a href="#nester" className="hover:text-honig-700">Nester entfernen</a>
           <a href="#honig" className="hover:text-honig-700">Honig</a>
-          <a href="#beratung" className="hover:text-honig-700">Wespen & Hornissen</a>
-          <a href="#bestellen" className="hover:text-honig-700">Bestellen</a>
           <a href="#kontakt" className="hover:text-honig-700">Kontakt</a>
         </div>
-        <a href="#bestellen" className="sm:hidden bg-honig-600 text-white px-3 py-1.5 rounded-lg text-sm">
-          Bestellen
+        <a href="tel:+4915203180359" className="sm:hidden bg-honig-600 text-white px-3 py-1.5 rounded-lg text-sm">
+          Anrufen
         </a>
       </div>
     </nav>
