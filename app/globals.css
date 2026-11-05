@@ -44,3 +44,21 @@ body {
     transition: none !important;
   }
 }
+
+/* ---------------- Hero Hintergrund-Zoom (Ken Burns) ---------------- */
+
+@keyframes hero-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-zoom {
+    animation: none;
+  }
+}
