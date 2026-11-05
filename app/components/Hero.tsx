@@ -1,48 +1,21 @@
 import Reveal from './Reveal'
 import { ArrowRight, Phone, Bug } from 'lucide-react'
 
-function HoneycombBg() {
+function MeshGradient() {
   return (
-    <svg
-      className="absolute inset-0 w-full h-full opacity-[0.13] pointer-events-none"
-      aria-hidden="true"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <defs>
-        <pattern id="hc-bg" width="80" height="70" patternUnits="userSpaceOnUse">
-          <polygon
-            points="40,4 76,24 76,54 40,74 4,54 4,24"
-            fill="#f5b942"
-            stroke="#ffffff"
-            strokeWidth="3"
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#hc-bg)" />
-    </svg>
-  )
-}
-
-function HoneycombHalo() {
-  return (
-    <svg viewBox="0 0 400 400" className="absolute inset-0 -z-10" aria-hidden="true">
-      <defs>
-        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.55">
-          <stop offset="0" stopColor="#fbbf24" stopOpacity="0.35" />
-          <stop offset="0.5" stopColor="#f59e0b" stopOpacity="0.12" />
-          <stop offset="1" stopColor="#fde68a" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx="200" cy="200" r="190" fill="url(#halo)" />
-    </svg>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div className="absolute -top-28 -left-24 w-[32rem] h-[32rem] rounded-full bg-amber-300/40 blur-3xl" />
+      <div className="absolute top-1/4 -right-32 w-[36rem] h-[36rem] rounded-full bg-amber-200/40 blur-3xl" />
+      <div className="absolute -bottom-32 left-1/4 w-[30rem] h-[30rem] rounded-full bg-honig-500/25 blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[26rem] h-[26rem] rounded-full bg-honig-100/60 blur-3xl" />
+    </div>
   )
 }
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#fffaf0] to-honig-100 py-20 md:py-28 border-b border-honig-200">
-      <HoneycombBg />
-      <HoneycombHalo />
+      <MeshGradient />
 
       <div className="relative max-w-3xl mx-auto px-4 text-center">
         <Reveal effect="fade-in" delay={0}>
