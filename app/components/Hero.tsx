@@ -12,7 +12,7 @@ export default function Hero() {
           className="w-full h-full object-cover animate-hero-zoom"
         />
         {/* Overlay für Text-Kontrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-honig-900/60 via-honig-900/35 to-honig-900/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/55" />
       </div>
 
       <div className="relative max-w-3xl mx-auto px-4 py-24 md:py-32 text-center">
