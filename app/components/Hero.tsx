@@ -12,7 +12,7 @@ export default function Hero() {
           className="w-full h-full object-cover animate-hero-zoom"
         />
         {/* Overlay für Text-Kontrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" />
       </div>
 
       <div className="relative max-w-3xl mx-auto px-4 py-24 md:py-32 text-center">
@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
         </Reveal>
         <Reveal effect="fade-up" delay={360}>
-          <p className="text-base md:text-lg text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto drop-shadow">
+          <p className="text-base md:text-lg text-white/95 mb-10 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
             Wespennest im Rollladenkasten? Hornissen unterm Dach? Ich entferne Nester
             fachgerecht und sicher – auch die invasive Asiatische Hornisse. Kostenlose
             Ersteinschätzung in Frankenthal und Umgebung.
