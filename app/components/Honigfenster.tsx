@@ -64,6 +64,13 @@ export default function Honigfenster() {
               </li>
             </ul>
           </Reveal>
+          <Reveal effect="fade-up" delay={440}>
+            <div className="mt-6 pt-4 border-t border-honig-100">
+              <p className="text-sm text-honig-900">
+                <strong>Standort:</strong> Oggersheimerstr. 14, 67227 Frankenthal
+              </p>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
