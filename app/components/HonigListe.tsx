@@ -76,7 +76,7 @@ export default function HonigListe() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {(honig as Honig[]).map((h, i) => (
             <Reveal key={h.slug} effect="pop" delay={100 + i * 110}>
-              <article className="group bg-honig-50 rounded-2xl p-6 border border-honig-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+              <article className="group bg-honig-50 rounded-2xl p-6 border border-honig-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                 <div className="h-32 rounded-xl mb-4 bg-gradient-to-br from-honig-100 to-honig-50 flex items-center justify-center overflow-hidden">
                   <HonigGlas farbe={h.farbe} />
                 </div>
@@ -91,7 +91,7 @@ export default function HonigListe() {
                 <p className="text-sm text-honig-900/80 mb-4 leading-relaxed">
                   {h.beschreibung}
                 </p>
-                <div className="pt-3 border-t border-honig-100 space-y-1.5">
+                <div className="mt-auto pt-3 border-t border-honig-100 space-y-1.5">
                   {h.groessen.map((g) => (
                     <div key={g.gewicht} className="flex items-center justify-between">
                       <span className="text-sm text-honig-700">{g.gewicht}</span>
