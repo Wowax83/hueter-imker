@@ -1,6 +1,7 @@
 import Hero from './components/Hero'
 import AsiatischeHornisse from './components/AsiatischeHornisse'
 import BeratungSection from './components/BeratungSection'
+import Projekte from './components/Projekte'
 import Vorstellung from './components/Vorstellung'
 import HonigListe from './components/HonigListe'
 import Footer from './components/Footer'
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <AsiatischeHornisse />
       <BeratungSection />
+      <Projekte />
       <Vorstellung />
       <HonigListe />
       <Footer />
