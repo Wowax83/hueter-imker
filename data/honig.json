@@ -1,34 +1,43 @@
 [
   {
-    "slug": "blueten-honig",
-    "name": "Blütenhonig",
-    "beschreibung": "Mild-aromatisch aus den Frühjahrstrachten rund um Frankenthal – Apfel, Kirsche, Löwenzahn und Wildkräuter. Der Allrounder fürs Frühstück und zum Süßen.",
-    "farbe": "#f5b942",
-    "preis": "8,50 €",
-    "gewicht": "500 g"
-  },
-  {
-    "slug": "wald-honig",
-    "name": "Waldhonig",
-    "beschreibung": "Kräftig, malzig und dunkel. Die Bienen sammeln Honigtau von Tannen und Fichten in den Wäldern rund um die Pfalz. Beliebt bei Teeliebhabern.",
-    "farbe": "#7c4a1f",
-    "preis": "9,50 €",
-    "gewicht": "500 g"
-  },
-  {
-    "slug": "rapshonig",
-    "name": "Rapshonig",
+    "slug": "raps",
+    "name": "Raps",
     "beschreibung": "Feincremig und sehr mild. Wenn im Mai rund um Frankenthal die Rapsfelder blühen, tragen meine Völker innerhalb weniger Tage den ganzen Jahresvorrat ein.",
     "farbe": "#f0e5b8",
-    "preis": "8,00 €",
-    "gewicht": "500 g"
+    "groessen": [
+      { "gewicht": "500 g", "preis": "10,00 €" },
+      { "gewicht": "250 g", "preis": "5,00 €" }
+    ]
   },
   {
-    "slug": "akazienhonig",
-    "name": "Akazienhonig",
+    "slug": "linde",
+    "name": "Linde",
+    "beschreibung": "Frisch, mild und leicht minzig. Der Lindenhonig gehört zu den edelsten Sorten – klar, hell und mit einem feinen, an Menthol erinnernden Aroma.",
+    "farbe": "#e6c94f",
+    "groessen": [
+      { "gewicht": "500 g", "preis": "10,00 €" },
+      { "gewicht": "250 g", "preis": "5,00 €" }
+    ]
+  },
+  {
+    "slug": "sommertracht",
+    "name": "Sommertracht",
+    "beschreibung": "Aromatisch und vollmundig aus der Sommerblüte – Linde, Brombeere, Klee und Wildkräuter rund um Frankenthal.",
+    "farbe": "#f5b942",
+    "groessen": [
+      { "gewicht": "500 g", "preis": "10,00 €" },
+      { "gewicht": "250 g", "preis": "5,00 €" }
+    ]
+  },
+  {
+    "slug": "akazie",
+    "name": "Akazie",
     "beschreibung": "Sehr mild und lange flüssig – fast wie ein Sirup. Robinien (oft „Akazie“ genannt) blühen nur in guten Jahren in der Pfalz, deshalb in kleiner Auflage.",
     "farbe": "#e8d97a",
-    "preis": "10,00 €",
-    "gewicht": "500 g"
+    "ausverkauft": true,
+    "groessen": [
+      { "gewicht": "500 g", "preis": "10,00 €" },
+      { "gewicht": "250 g", "preis": "5,00 €" }
+    ]
   }
 ]

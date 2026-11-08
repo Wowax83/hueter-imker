@@ -6,8 +6,8 @@ type Honig = {
   name: string
   beschreibung: string
   farbe: string
-  preis: string
-  gewicht: string
+  ausverkauft?: boolean
+  groessen: { gewicht: string; preis: string }[]
 }
 
 function HonigGlas({ farbe }: { farbe: string }) {
@@ -80,13 +80,24 @@ export default function HonigListe() {
                 <div className="h-32 rounded-xl mb-4 bg-gradient-to-br from-honig-100 to-honig-50 flex items-center justify-center overflow-hidden">
                   <HonigGlas farbe={h.farbe} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{h.name}</h3>
+                <h3 className="text-xl font-bold mb-2 flex items-center gap-2 flex-wrap">
+                  {h.name}
+                  {h.ausverkauft && (
+                    <span className="text-xs font-semibold uppercase tracking-wide text-red-600 bg-red-50 border border-red-200 rounded-full px-2 py-0.5">
+                      ausverkauft
+                    </span>
+                  )}
+                </h3>
                 <p className="text-sm text-honig-900/80 mb-4 leading-relaxed">
                   {h.beschreibung}
                 </p>
-                <div className="flex items-center justify-between pt-3 border-t border-honig-100">
-                  <span className="text-sm text-honig-700">{h.gewicht}</span>
-                  <span className="font-bold text-honig-700 text-lg">{h.preis}</span>
+                <div className="pt-3 border-t border-honig-100 space-y-1.5">
+                  {h.groessen.map((g) => (
+                    <div key={g.gewicht} className="flex items-center justify-between">
+                      <span className="text-sm text-honig-700">{g.gewicht}</span>
+                      <span className="font-bold text-honig-700">{g.preis}</span>
+                    </div>
+                  ))}
                 </div>
               </article>
             </Reveal>
