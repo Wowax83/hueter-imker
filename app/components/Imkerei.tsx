@@ -24,16 +24,6 @@ const bilder: Bild[] = [
     alt: 'Honigwabe mit Bienen im Rähmchen',
   },
   {
-    bild: '/honig/honig-wabe.webp',
-    titel: 'Frische Wabe aus der eigenen Imkerei',
-    alt: 'Imker mit frischer Honigwabe',
-  },
-  {
-    bild: '/honig/honig-schwarm.webp',
-    titel: 'Bienenschwarm eingefangen',
-    alt: 'Eingefangener Bienenschwarm',
-  },
-  {
     bild: '/honig/honig-bienenhotel.webp',
     titel: 'Bienenhotel für Wildbienen',
     alt: 'Biene am Bienenhotel aus Bambusröhren',
