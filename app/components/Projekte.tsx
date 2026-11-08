@@ -10,8 +10,8 @@ type Projekt = {
 const projekte: Projekt[] = [
   {
     bild: '/projekte/projekte-wand.webp',
-    titel: 'Wespennest an der Hauswand',
-    alt: 'Großes Wespennest an einer Hauswand',
+    titel: 'Asiatisches Hornissennest an der Hauswand',
+    alt: 'Asiatisches Hornissennest an einer Hauswand',
   },
   {
     bild: '/projekte/projekte-baum.webp',
@@ -20,8 +20,8 @@ const projekte: Projekt[] = [
   },
   {
     bild: '/projekte/projekte-wabe.webp',
-    titel: 'Entnommene Wabe',
-    alt: 'Entnommene Wespenwabe auf einem Tablett',
+    titel: 'Entnommenes Wespennest',
+    alt: 'Entnommenes Wespennest auf einem Tablett',
   },
   {
     bild: '/projekte/projekte-schutzanzug.webp',
@@ -30,8 +30,8 @@ const projekte: Projekt[] = [
   },
   {
     bild: '/projekte/projekte-papierwespe.webp',
-    titel: 'Kleines Papierwespennest',
-    alt: 'Kleines Papierwespennest an Holz',
+    titel: 'Primärnest der Asiatischen Hornisse (Frühjahr)',
+    alt: 'Primärnest der Asiatischen Hornisse im Frühjahr',
   },
   {
     bild: '/projekte/projekte-hornisse.webp',
